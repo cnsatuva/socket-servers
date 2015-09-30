@@ -1,6 +1,7 @@
 import socket
 import threading
 import SocketServer
+import sys
 
 class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
 
@@ -26,6 +27,8 @@ def client(ip, port, message):
 if __name__ == "__main__":
     # Port 0 means to select an arbitrary unused port
     HOST, PORT = "localhost", 0
+    if len(sys.argv) > 1:
+        PORT = int(sys.argv[1])
 
     server = ThreadedTCPServer((HOST, PORT), ThreadedTCPRequestHandler)
     ip, port = server.server_address
