@@ -26,7 +26,7 @@ def client(ip, port, message):
 
 if __name__ == "__main__":
     # Port 0 means to select an arbitrary unused port
-    HOST, PORT = "localhost", 0
+    HOST, PORT = "0.0.0.0", 0
     if len(sys.argv) > 1:
         PORT = int(sys.argv[1])
 
